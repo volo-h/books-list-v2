@@ -1,0 +1,19 @@
+version: "3.0"
+
+networks:
+  book-list:
+
+services:
+  postgres:
+    restart: always
+    image: postgres:latest
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=booklist
+    volumes:
+      - ./store/pg/data:/var/lib/postgresql/data
+    networks:
+      - book-list

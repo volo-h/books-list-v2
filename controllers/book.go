@@ -1,16 +1,14 @@
 package controllers
 
 import (
-	"database/sql"
-	"encoding/json"
 	"books-list-v2/models"
 	"books-list-v2/repository/book"
 	"books-list-v2/utils"
+	"database/sql"
+	"encoding/json"
 	"log"
 	"net/http"
 	"strconv"
-
-	"github.com/davecgh/go-spew/spew"
 
 	"github.com/gorilla/mux"
 )
@@ -121,7 +119,7 @@ func (c Controller) UpdateBook(db *sql.DB) http.HandlerFunc {
 		bookRepo := bookRepository.BookRepository{}
 		rowsUpdated, err := bookRepo.UpdateBook(db, book)
 
-		spew.Dump(err)
+		//spew.Dump(err)
 
 		if err != nil {
 			error.Message = "Server error"
